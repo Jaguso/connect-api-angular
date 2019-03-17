@@ -17,6 +17,6 @@ export class SignupService {
       lastname: lastname,
       password: password
     };
-    return this.http.post(`${this.uri}/auth/user/create`, user)
+    return this.http.post(`${this.uri}/auth/user/create`, user);
   }
 }

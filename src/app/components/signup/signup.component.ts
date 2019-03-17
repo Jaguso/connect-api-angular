@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { SignupService } from '../../services/signup/signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,21 +9,38 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  createForm: FormGroup;
 
-  constructor() { }
+  constructor(private signupService: SignupService, private fb: FormBuilder, private router: Router) {
+    this.createForm = this.fb.group({
+      email: '',
+      firstname: '',
+      lastname: '',
+      password: ''
+    });
+  }
+
+  addUser(email, firstname, lastname, password) {
+    this.signupService
+      .addUser(email, firstname, lastname, password)
+      .subscribe(() => {
+        this.router.navigate(['/login']);
+      })
+    console.log(this.createForm.value);
+  }
 
   ngOnInit() {
   }
 
-  signupForm = new FormGroup({
-    email: new FormControl(''),
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
-    password: new FormControl('')
-  })
+  // signupForm = new FormGroup({
+  //   email: new FormControl(''),
+  //   firstname: new FormControl(''),
+  //   lastname: new FormControl(''),
+  //   password: new FormControl('')
+  // })
 
-  onSubmit() {
-    console.log(this.signupForm.value)
-  }
+  // onSubmit() {
+  //   console.log(this.signupForm.value)
+  // }
 
 }
