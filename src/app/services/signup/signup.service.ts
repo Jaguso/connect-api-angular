@@ -19,4 +19,12 @@ export class SignupService {
     };
     return this.http.post(`${this.uri}/auth/user/create`, user);
   }
+
+  authenticateUser(email, password) {
+    const authUser = {
+      email: email,
+      password: password
+    };
+    return this.http.post(`${this.uri}/auth/user/authenticate`, authUser);
+  }
 }
