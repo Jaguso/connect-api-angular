@@ -32,15 +32,4 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  // signupForm = new FormGroup({
-  //   email: new FormControl(''),
-  //   firstname: new FormControl(''),
-  //   lastname: new FormControl(''),
-  //   password: new FormControl('')
-  // })
-
-  // onSubmit() {
-  //   console.log(this.signupForm.value)
-  // }
-
 }
