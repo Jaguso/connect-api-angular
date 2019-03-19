@@ -20,8 +20,12 @@ export class LoginComponent implements OnInit {
   addAuthUser(email, password) {
     this.signupService
       .authenticateUser(email, password)
-      .subscribe()
+      .subscribe((response) => {
+        console.log("token: ", response["token"]);
+        localStorage.setItem("token ", response["token"]);
+      });
     console.log(this.createForm.value);
+
   }
 
   ngOnInit() {
