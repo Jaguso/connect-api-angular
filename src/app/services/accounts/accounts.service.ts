@@ -13,9 +13,10 @@ export class AccountsService {
 
   getAccounts() {
     let token = localStorage.getItem("token")
-    // const headers = new HttpHeaders({
-    //   'x-access-token': token
-    // });
-    return this.http.get(`${this.url}/accounts`, {headers: {'x-access-token': token}});
+    return this.http.get(
+      `${this.url}/accounts`, 
+      {headers: {
+        'x-access-token': token
+      }});
   }
 }
