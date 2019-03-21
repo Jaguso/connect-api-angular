@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,12 @@ export class AccountsService {
 
   constructor(private http: HttpClient) { }
 
+
   getAccounts() {
-    return this.http.get(`${this.url}/accounts`);
+    let token = localStorage.getItem("token")
+    // const headers = new HttpHeaders({
+    //   'x-access-token': token
+    // });
+    return this.http.get(`${this.url}/accounts`, {headers: {'x-access-token': token}});
   }
 }

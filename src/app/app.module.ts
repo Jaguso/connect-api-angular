@@ -12,10 +12,12 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { SignupService } from './services/signup/signup.service';
+import { AccountsComponent } from './components/accounts/accounts.component';
 
 const routes: Routes = [
   { path: '', component: SignupComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'accounts', component: AccountsComponent }
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    NavbarComponent
+    NavbarComponent,
+    AccountsComponent,
   ],
   imports: [
     BrowserModule,
