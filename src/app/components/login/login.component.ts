@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
       .authenticateUser(email, password)
       .subscribe((response) => {
         localStorage.setItem("token", response["token"]);
-        localStorage.setItem("userId", this.getDecodeAccessToken(localStorage.getItem("token")).id)
+        localStorage.setItem(
+          "userId", 
+          this.getDecodeAccessToken(localStorage.getItem("token")).id)
       });
     console.log(this.createForm.value);
     console.log(this.getDecodeAccessToken(localStorage.getItem("token")))
