@@ -22,14 +22,12 @@ export class LoginComponent implements OnInit {
     this.signupService
       .authenticateUser(email, password)
       .subscribe((response) => {
-        // console.log("token: ", response["token"]);
         localStorage.setItem("token", response["token"]);
+        localStorage.setItem("userId", this.getDecodeAccessToken(localStorage.getItem("token")).id)
       });
     console.log(this.createForm.value);
     console.log(this.getDecodeAccessToken(localStorage.getItem("token")))
 
-    // console.log(localStorage.getItem("token"));
-    // console.log(decodeToken(localStorage.getItem("token")))
   }
 
   getDecodeAccessToken(token: string): any {
