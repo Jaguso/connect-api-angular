@@ -37,7 +37,7 @@ const routes: Routes = [
           return localStorage.getItem('access_token');
         },
         whitelistedDomains: ['localhost:4200'],
-        blacklistedRoutes: ['https://mighty-refuge-81707.herokuapp.com/api/auth/user/authenticate']
+        // blacklistedRoutes: ['https://mighty-refuge-81707.herokuapp.com/api/auth/user/authenticate']
       }
     })
   ],
