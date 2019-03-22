@@ -13,11 +13,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { SignupService } from './services/signup/signup.service';
 import { AccountsComponent } from './components/accounts/accounts.component';
+import { RequestAccountComponent } from './components/request-account/request-account.component';
 
 const routes: Routes = [
   { path: '', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'accounts', component: AccountsComponent }
+  { path: 'accounts', component: AccountsComponent },
+  { path: 'reqaccount', component: RequestAccountComponent }
 ];
 
 @NgModule({
@@ -27,6 +29,7 @@ const routes: Routes = [
     SignupComponent,
     NavbarComponent,
     AccountsComponent,
+    RequestAccountComponent,
   ],
   imports: [
     BrowserModule,
